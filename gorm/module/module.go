@@ -35,4 +35,10 @@ func GetDB() *gorm.DB{
 	return db
 }
 
+func UpdateDB() {
+
+	//db := GetDB()
+
+}
+
 
