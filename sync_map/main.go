@@ -47,4 +47,18 @@ func main() {
 		fmt.Printf("vvv： %s : %d \n", k, v)
 		return true
 	})
+	fmt.Println()
+	getNilValue()
+}
+
+// 测试取出的interface为nil
+// 要注意取出的值为nil
+func getNilValue() {
+	v, ok := ma.Load("mofan")
+	if !ok {
+		if v == nil {
+			v = 10
+		}
+		fmt.Println(v.(int))
+	}
 }
