@@ -7,3 +7,7 @@ func BenchmarkFib(b *testing.B) {
 		fib(10)
 	}
 }
+
+func TestJson(t *testing.T) {
+	MapJson()
+}
