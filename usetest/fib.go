@@ -17,7 +17,7 @@ func fib(n int) int {
 func GetData() {
 	tNow := time.Now()
 	var d []string
-	for i := 0; i < 7; i++ {
+	for i := 6; i >= 0; i-- {
 		xNow := tNow.AddDate(0, 0, -1 * i).Format("2006-1-2")
 		x := strings.Split(xNow, "-")
 		v := x[1] + "月" + x[2] + "日"
