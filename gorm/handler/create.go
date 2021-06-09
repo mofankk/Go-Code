@@ -6,5 +6,5 @@ type Create struct {
 
 func (c *Create) Insert() {
 
-	type
+
 }
