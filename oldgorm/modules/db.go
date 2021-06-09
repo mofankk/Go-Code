@@ -11,7 +11,7 @@ import (
 var conn *gorm.DB
 
 // SetUp 创建数据库连接
-func SetUp() {
+func init() {
 
 	dsn := "postgres://" +
 		"mofan"+ ":" +
@@ -25,8 +25,8 @@ func SetUp() {
 		return
 	}
 	sqlDB := db.DB()
-	sqlDB.SetMaxOpenConns(300)
-	sqlDB.SetMaxIdleConns(20)
+	sqlDB.SetMaxOpenConns(10)
+	sqlDB.SetMaxIdleConns(3)
 
 	//fmt.Println(sqlDB.Stats())
 	conn = db
@@ -38,4 +38,19 @@ func GetDB() (*gorm.DB, error) {
 	}
 
 	return nil, errors.New("数据库连接失败")
+}
+
+func GetConn() (*gorm.DB, error) {
+	dsn := "postgres://" +
+		"mofan"+ ":" +
+		"nihao2021" + "@" +
+		"localhost" + "/" +
+		"gorm_test" + "?sslmode=disable"
+	db, err := gorm.Open("postgres", dsn)
+	if err != nil {
+		fmt.Printf("数据库连接失败: %v", err)
+		db = nil
+		return nil, err
+	}
+	return db, nil
 }
