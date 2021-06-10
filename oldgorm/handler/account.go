@@ -4,10 +4,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"oldgorm/modules"
+	"os"
 	"time"
 )
 
-func GetAccount() {
+func GetAccount(f *os.File) {
 	db, err := modules.GetDB()
 	if err != nil {
 		fmt.Println("DB获取错误")
@@ -20,20 +21,20 @@ func GetAccount() {
 	//}
 	var info []modules.Account
 
-	db.LogMode(true)
+	//db.LogMode(true)
 	s, _ := json.Marshal(db.DB().Stats())
-	fmt.Println(string(s))
+	f.WriteString(string(s) + "\n\n")
 	err = db.Where("username like '%" + "x" + "%'").Find(&info).Error
 	if err != nil {
 		fmt.Printf("查询失败: %v", err)
 	}
 
-	fmt.Println(len(info))
+	//fmt.Println(len(info))
 	time.Sleep(1 * time.Second)
 }
 
 
-func GetAccountB() {
+func GetAccountB(f *os.File) {
 	db, err := modules.GetConn()
 	if err != nil {
 		fmt.Println("DB获取错误")
@@ -48,11 +49,11 @@ func GetAccountB() {
 
 	db.LogMode(true)
 	s, _ := json.Marshal(db.DB().Stats())
-	fmt.Println(string(s))
+	f.WriteString(string(s) + "\n")
 	err = db.Where("username like '%" + "x" + "%'").Find(&info).Error
 	if err != nil {
 		fmt.Printf("查询失败: %v", err)
 	}
 
-	fmt.Println(len(info))
+	//fmt.Println(len(info))
 }

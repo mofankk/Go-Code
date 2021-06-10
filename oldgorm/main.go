@@ -1,7 +1,8 @@
 package main
 
 import (
-	"fmt"
+	"os"
+	"strconv"
 	"time"
 
 	"oldgorm/handler"
@@ -16,12 +17,16 @@ GORM V1 Doc https://v1.gorm.io/
 
 func main() {
 	//modules.SetUp()
+	f, _ := os.Create("db.log")
+	defer f.Close()
 	for i := 0; i < 1000; i++ {
-		go handler.GetAccount()
+		f.WriteString(strconv.Itoa(i) + ", ")
+		go handler.GetAccount(f)
 	}
 
-	fmt.Println("最后一个")
-	handler.GetAccountB()
+	f.WriteString("最后一个\n\n")
+	handler.GetAccount(f)
+	//handler.GetAccountB(f)
 
 	//go handler.GetAccountB()
 	//go handler.GetAccountB()
