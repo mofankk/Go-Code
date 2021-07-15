@@ -1,0 +1,11 @@
+services:
+  - name: acmecorp
+    url: https://example.com/control-plane-api/v1
+    credentials:
+      bearer:
+        token: "bGFza2RqZmxha3NkamZsa2Fqc2Rsa2ZqYWtsc2RqZmtramRmYWxkc2tm"
+discovery:
+  resource: bundles/bundle.tar.gz
+  decision: discovery/config
+labels:
+  region: "UK"

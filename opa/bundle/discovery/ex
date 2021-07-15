@@ -1,0 +1,20 @@
+package discovery
+
+config := {
+  "bundles": {
+    "main": {
+      "service": "acmecorp",
+      "resource": bundle_name  # line 7
+    }
+  }
+}
+
+rt := opa.runtime()
+region := rt.config.labels.region
+bundle_name := region_bundle[region]
+
+# region-bundle information
+region_bundle := {
+  "US": "example/test1/p",
+  "UK": "example/test2/p"
+}
