@@ -3,11 +3,6 @@ package main
 import "fmt"
 
 func main() {
-	nums := []int{1, 2, 3, 4, 5, 6, 7}
-
-	rotate(nums, 3)
-
-	fmt.Println(nums)
 
 }
 
@@ -19,7 +14,6 @@ func rotate(nums []int, k int) {
 	arrLen := len(nums)
 	k = k % arrLen
 	// 翻转整个字符串
-
 	for i := 0; i < arrLen/2; i++ {
 		t := nums[i]
 		nums[i] = nums[arrLen-i-1]
