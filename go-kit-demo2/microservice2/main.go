@@ -9,6 +9,7 @@ import (
 	"context"
 	"microservice2/transport"
 	"microservice2/endpoint"
+	"os"
 )
 
 func main() {
@@ -25,9 +26,10 @@ func main() {
 
 	res, err := getUserInfo(ctx, endpoint.UserRequest{Id: 101})
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		os.Exit(1)
 	}
-	//userInfo := res.(endpoint.UserResponse)
-	//fmt.Println(userInfo.Data)
+	userInfo := res.(endpoint.UserResponse)
+	fmt.Println(userInfo.Data)
 	fmt.Println(res)
 }
