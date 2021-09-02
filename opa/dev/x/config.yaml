@@ -1,0 +1,12 @@
+services:
+  - name: acmecorp
+    url: https://example.com/service/v1
+
+bundles:
+  authz:
+    service: acmecorp
+    resource: somedir/bundle.tar.gz
+    persist: true
+    polling:
+      min_delay_seconds: 10
+      max_delay_seconds: 20
