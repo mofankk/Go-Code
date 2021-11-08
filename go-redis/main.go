@@ -1,12 +1,13 @@
 package main
 
 import (
-	"fmt"
 	"context"
+	"fmt"
+
 	"geekbyte.cn/go-redis/cache"
 )
 
-func main() {
+func main1() {
 	cache.Conn()
 
 	cli := cache.GetConn()
@@ -37,7 +38,5 @@ func main() {
 	cli2.Close()
 }
 
-
 func runA() {
 }
-
