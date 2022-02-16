@@ -1,12 +1,13 @@
 package main
 
 import (
-	"log"
+	"fmt"
 	"strings"
 )
 
 func main() {
-	log.Println(strings.TrimRight("abba", "ba"))
-	log.Println(strings.TrimRight("abcdaaaaa", "abcd"))
-	log.Println(strings.TrimSuffix("abcddcba", "dcba"))
+	//fmt.Println(strings.TrimRight("abba", "ba"))
+	//fmt.Println(strings.TrimRight("abcdaaaaa", "abcd"))
+	//fmt.Println(strings.TrimSuffix("abcddcba", "dcba"))
+	fmt.Println(strings.Split("", "@")[0])
 }
